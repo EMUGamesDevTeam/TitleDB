@@ -17,3 +17,6 @@ dist/
 .wget-hsts
 extras/cron/titledb_cli.cron.log
 extras/cron/titledb_cli.github.log
+.mysql_history
+**/.mysql_history
+.rest-client/
