@@ -348,17 +348,17 @@ class TitleDBViews:
     def legacy_list_v0(self):
         if self.request.method == 'POST':
             mydata = json.loads(self.request.body.decode("UTF-8"))
-            #if 'action' in mydata and mydata['action'] == 'add' and 'url' in mydata:
-                #submission = Submission(active=1)
-                #submission.url = mydata['url']
-                #submission.status = 'Waiting for URL processing daemon to become ready.'
-                #if 'client_addr' in dir(submission):
-                #    submission.client_addr = self.request.client_addr
-                #DBSession.add(submission)
-                #DBSession.flush()
-                #self.request.render_schema = SubmissionSchema()
-                #return submission
-            print(mydata)
+            if 'action' in mydata and mydata['action'] == 'add' and 'url' in mydata:
+                submission = Submission(active=1)
+                submission.url = mydata['url']
+                submission.status = 'Waiting for URL processing daemon to become ready.'
+                if 'client_addr' in dir(submission):
+                    submission.client_addr = self.request.client_addr
+                DBSession.add(submission)
+                DBSession.flush()
+                self.request.render_schema = SubmissionSchema()
+                return submission
+            #print(mydata)
         sq = DBSession.query(CIA.entry_id, CIA.titleid, func.min(CIA.created_at).label('mca')).group_by(CIA.titleid).subquery()
         data = DBSession.query(CIA_v0).join(sq,and_(CIA.titleid==sq.c.titleid,CIA.entry_id==sq.c.entry_id)).filter(CIA.active==True).order_by(CIA.created_at.desc()).all()
 
