@@ -1,0 +1,17 @@
+db/
+.cache/
+private/
+titledb.egg-info/
+**/*.bak
+**/*.backup
+**/*.pyc
+__pycache__/
+**/__pycache__/
+build/
+dist/
+.vscode_server/
+.nano/
+.bashrc
+.cache/
+.bash_history
+.wget-hsts

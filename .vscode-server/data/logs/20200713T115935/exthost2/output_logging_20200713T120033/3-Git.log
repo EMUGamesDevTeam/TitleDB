@@ -1,0 +1,127 @@
+Looking for git in: git
+Using git 2.11.0 from git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+fatal: Not a git repository (or any of the parent directories): .git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /home/titledb
+> git status -z -u
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git check-ignore -v -z --stdin
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
