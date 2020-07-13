@@ -24,7 +24,7 @@
 # 
 # m h  dom mon dow   command
 
-* * * * * ( cd /home/titledb/TitleDB/ ; /usr/local/bin/titledb_cli cron ) >/home/titledb/titledb_cli.cron.log 2>&1
-5-55/15 * * * * ( cd /home/titledb/TitleDB/ ; /usr/local/bin/titledb_cli github ) >/home/titledb/titledb_cli.github.log 2>&1
+* * * * * ( cd /home/titledb/ ; /usr/local/bin/titledb_cli cron ) >/home/titledb/extras/cron/titledb_cli.cron.log 2>&1
+5-55/15 * * * * ( cd /home/titledb/ ; /usr/local/bin/titledb_cli github ) >/home/titledb/extras/cron/titledb_cli.github.log 2>&1
 
 #
