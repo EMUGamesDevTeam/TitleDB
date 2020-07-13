@@ -125,3 +125,7 @@ Open repository: /home/titledb
 > git ls-files --stage -- /home/titledb/.gitignore
 > git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
 > git show :.gitignore
+> git ls-files --stage -- /home/titledb/.gitignore
+> git cat-file -s 45e8bf5b3463079735545b295d6650faf3777f87
+> git show :.gitignore
+> git check-ignore -v -z --stdin

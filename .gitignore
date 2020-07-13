@@ -9,7 +9,7 @@ __pycache__/
 **/__pycache__/
 build/
 dist/
-.vscode_server/
+.vscode-server/
 .nano/
 .bashrc
 .cache/
