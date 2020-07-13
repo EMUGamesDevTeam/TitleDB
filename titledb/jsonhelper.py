@@ -33,14 +33,14 @@ class SchemaJsonRenderer(JSON):
             request = system.get('request')
             if (request is not None and isinstance(getattr(request, 'render_schema', None), Schema)):
 # This doesn't catch errors...
-                value, errors  = request.render_schema.dump(value)
+               value, errors  = request.render_schema.dump([value, value])
                 #print(request.render_schema.dump(value))
 # This will catch errors
 #                try:
 #                    value, errors = request.render_schema.dump(value)
 #                except Exception:
 #                    errors = True
-
+#
 #                if errors:
 #                    raise HTTPInternalServerError(body="Serialization failed.")
 
