@@ -7,7 +7,7 @@ User=titledb
 Group=titledb
 GuessMainPID=yes
 Restart=always
-ExecStart=/usr/local/bin/pserve /home/titledb/TitleDB/production.ini
+ExecStart=/usr/local/bin/pserve /home/titledb/production.ini
 
 [Install]
 WantedBy=multi-user.target
