@@ -18,7 +18,5 @@ RUN pip install -e .
 COPY --chown=titledb:titledb . /usr/src/titledb
 COPY --chown=titledb:titledb extras/cron/titledb /var/spool/cron/crontabs/
 
-ENV TITLEDB_DBPASSWORD=<put_db_password_here> TITLEDB_AUTHSECRET=<put_auth_secret_here> TITLEDB_PORT=6543
-
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["bash", "-c", "cron && su -s /bin/bash -c \"exec pserve production.ini http_port=${TITLEDB_PORT} db_password=${TITLEDB_DBPASSWORD} auth_secret=${TITLEDB_AUTHSECRET}\" titledb"]
+CMD ["bash", "-c", "cron && su -s /bin/bash -c \"exec pserve production.ini\" titledb"]
