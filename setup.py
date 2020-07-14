@@ -14,7 +14,9 @@ requires = [
     'waitress',
     'rarfile',
     'libarchive-c',
-    'zope.sqlalchemy'
+    'zope.sqlalchemy',
+    'requests',
+    'mysqlclient'
 ]
 
 setup(name='titledb',
