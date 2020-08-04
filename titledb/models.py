@@ -30,15 +30,15 @@ configure_mappers()
 
 from sqlalchemy.sql import ( select, func, cast )
 
-from zope.sqlalchemy import ZopeTransactionEvents, register
+from zope.sqlalchemy import ZopeTransactionExtension, register
 
 from .jsonhelper import RenderSchema
 
-engine = create_engine("mysql://titledb:lapasswordèsempretestù@localhost/titledb")
+#engine = create_engine("mysql://titledb:lapasswordèsempretestù@localhost/titledb")
 
 DBSession = scoped_session(
-#    sessionmaker(extension=ZopeTransactionEvents()))
-    sessionmaker(bind=engine))
+    sessionmaker(extension=ZopeTransactionExtension()))
+#    sessionmaker(bind=engine))
 Base = declarative_base()
 
 class GenericBase(AbstractConcreteBase, Base):

@@ -10,7 +10,7 @@ pyramid.includes =
 titledb.secret = titledb
 titledb.cache = /var/cache/titledb/
 
-sqlalchemy.url = mysql://giochi:EMUGames.GQ-EMUGamesITA.ml@localhost:703306/giochi?charset=utf8&use_unicode=1
+sqlalchemy.url = mysql://utente:lapasswordesempretestu@localhost/database?charset=utf8&use_unicode=1
 
 [filter:paste_prefix]
 use = egg:PasteDeploy#prefix

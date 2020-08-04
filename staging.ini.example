@@ -1,16 +1,14 @@
 [app:titledb]
-use = egg:titledb
-pyramid.reload_templates = false
-pyramid.debug_authorization = false
-pyramid.debug_notfound = false
-pyramid.debug_routematch = false
+use = egg:titledb#main
+pyramid.reload_templates = true
 pyramid.includes =
+    pyramid_debugtoolbar
     pyramid_tm
-
+#debugtoolbar.hosts = 192.168.42.249 192.168.42.90 127.0.0.1 ::1
 titledb.secret = titledb
 titledb.cache = /var/cache/titledb/
 
-sqlalchemy.url = mysql://giochi:EMUGames.GQ-EMUGamesITA.ml@localhost:703306/giochi?charset=utf8&use_unicode=1
+sqlalchemy.url = mysql://database:lapasswordesempretestu@localhost/database?charset=utf8&use_unicode=1
 
 [filter:paste_prefix]
 use = egg:PasteDeploy#prefix
@@ -24,7 +22,6 @@ pipeline =
 use = egg:waitress#main
 host = 127.0.0.1
 port = 6543
-threads = 4
 
 # Begin logging configuration
 
@@ -32,7 +29,7 @@ threads = 4
 keys = root, titledb, sqlalchemy.engine.base.Engine
 
 [logger_titledb]
-level = WARN
+level = DEBUG
 handlers =
 qualname = titledb
 
@@ -43,11 +40,11 @@ keys = console
 keys = generic
 
 [logger_root]
-level = WARN
+level = INFO
 handlers = console
 
 [logger_sqlalchemy.engine.base.Engine]
-level = WARN
+level = INFO
 handlers =
 qualname = sqlalchemy.engine.base.Engine
 

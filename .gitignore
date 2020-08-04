@@ -20,3 +20,7 @@ extras/cron/titledb_cli.github.log
 .mysql_history
 **/.mysql_history
 .rest-client/
+production.ini
+staging.ini
+development.ini
+
