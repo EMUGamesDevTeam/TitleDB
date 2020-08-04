@@ -33,7 +33,7 @@ class SchemaJsonRenderer(JSON):
             request = system.get('request')
             if (request is not None and isinstance(getattr(request, 'render_schema', None), Schema)):
 # This doesn't catch errors...
-               value, errors  = request.render_schema.dump(original_render(value, system))#value)
+               value, errors  = request.render_schema.dump(value)
                 #print(request.render_schema.dump(value))
 # This will catch errors
 #                try:

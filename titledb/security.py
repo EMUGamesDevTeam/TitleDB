@@ -10,6 +10,8 @@ from .models import (
 
 import logging
 log = logging.getLogger(__name__)
+logging.root.setLevel(logging.NOTSET)
+logging.basicConfig(level=logging.NOTSET)
 
 def hash_password(pw):
     pwhash = bcrypt.hashpw(pw.encode('utf8'), bcrypt.gensalt())

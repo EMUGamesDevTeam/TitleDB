@@ -13,6 +13,8 @@ import transaction
 import logging
 
 log = logging.getLogger(__name__)
+logging.root.setLevel(logging.NOTSET)
+logging.basicConfig(level=logging.NOTSET)
 
 def github_full_scan(settings=None):
     url_like = 'https://github.com/%/releases/download/%'

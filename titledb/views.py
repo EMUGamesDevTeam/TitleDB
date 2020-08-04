@@ -1,5 +1,7 @@
 import logging
 log = logging.getLogger(__name__)
+logging.root.setLevel(logging.NOTSET)
+logging.basicConfig(level=logging.NOTSET)
 
 import json
 import mimetypes

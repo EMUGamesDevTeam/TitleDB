@@ -16,7 +16,8 @@ from .jsonhelper import custom_json_renderer
 
 import logging
 log = logging.getLogger(__name__)
-
+logging.root.setLevel(logging.NOTSET)
+logging.basicConfig(level=logging.NOTSET)
 def add_cors_headers_response_callback(event):
     def cors_headers(request, response):
         response.headers.update({

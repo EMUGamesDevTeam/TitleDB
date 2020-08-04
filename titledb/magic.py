@@ -16,6 +16,8 @@ import libarchive
 
 import logging
 log = logging.getLogger(__name__)
+logging.root.setLevel(logging.NOTSET)
+logging.basicConfig(level=logging.NOTSET)
 
 from datetime import datetime
 
