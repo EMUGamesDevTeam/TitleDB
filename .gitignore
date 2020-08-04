@@ -12,6 +12,7 @@ dist/
 .vscode-server/
 .nano/
 .bashrc
+.profile
 .cache/
 .bash_history
 .wget-hsts
@@ -23,4 +24,5 @@ extras/cron/titledb_cli.github.log
 production.ini
 staging.ini
 development.ini
-
+**/.local/
+**/.sudo_as_admin_successful
