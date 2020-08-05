@@ -26,3 +26,4 @@ staging.ini
 development.ini
 **/.local/
 **/.sudo_as_admin_successful
+**/.gitconfig

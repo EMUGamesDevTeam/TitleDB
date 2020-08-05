@@ -180,8 +180,7 @@ class CIASchemaNested(FileSchemaNested, CIASchema):
     assets = fields.Nested('AssetsSchemaNested', many=False, exclude=['active','cia','tdsx','arm9'])
 
 class CIA_v0(Base):
-    __table__ = CIA.__table__
-    def __init__():
+        __table__ = CIA.__table__
         __mapper_args__ = {
             'include_properties' :['id', 'active', 'titleid', 'name', 'description', 'author', 'size', 'mtime', 'create_time', 'update_time', 'url_id']
         }

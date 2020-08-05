@@ -4,14 +4,14 @@
 
 3DS Homebrew Title Database
 
-API: https://api.titledb.com/
+API: http://api.TitleDB.ga:7080/
 
 You must provide a User-Agent header with your request
 (e.g. httpcAddRequestHeaderField(&context, (char*)"User-Agent", (char*)"Mozilla/5.0 (Nintendo 3DS; Mobile; rv:10.0) Gecko/20100101 YourAppName/1.4.13"); )
 Please try to make it unique to your application.
 
 If you use this your project, please include a mention including the website name,
-stylized as TitleDB.com or link back to the main website, whichever is applicable.
+stylized as titledb.ga or link back to the main website, whichever is applicable.
 
 Contact me on reddit as /u/codepoet82 or ken(a)intherack.com if you have any
 questions, or would like to help somehow. Particularly, assistance from
@@ -23,18 +23,18 @@ Web UI originally based on 'that titlekeys site'.
 
 -->
 <head>
-    <base href="https://titledb.com/" target="_blank">
+    <base href="http://titledb.ga:7080/" target="_blank">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>3DS Homebrew Title Database</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/css/dataTables.bootstrap.min.css">
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <style>
@@ -60,13 +60,13 @@ Web UI originally based on 'that titlekeys site'.
 <div class="container-fluid">
     <h1>3DS Homebrew Title Database</h1>
 
-<a href="https://github.com/ksanislo/TitleDB"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+<a href="http://github.com/ksanislo/TitleDB"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 
-    View <a href="https://github.com/ksanislo/TitleDB">the GitHub repo</a> for documentation on how you can use the TitleDB in your projects.
+    View <a href="http://github.com/ksanislo/TitleDB">the GitHub repo</a> for documentation on how you can use the TitleDB in your projects.
 
     <h3>Add a new title</h3>
     <div class="col-sm-12">
-        <form id="urlForm" class="form-horizontal" method="post" action="https://api.titledb.ga/v0/">
+        <form id="urlForm" class="form-horizontal" method="post" action="http://api.titledb.ga:7080/v0/">
             <div class="form-group-lg">
                 <label class="col-sm-2 control-label" for="url">CIA or Archive URL:</label>
                 <div class="col-sm-10">
@@ -125,13 +125,13 @@ Web UI originally based on 'that titlekeys site'.
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="/js/bootstrapValidator.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.2/toastr.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/dataTables.bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/jquery.dataTables.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/dataTables.bootstrap.min.js"></script>
 <script src="js/filesize.min.js"></script>
 <script type="text/javascript">
 
@@ -141,7 +141,7 @@ Web UI originally based on 'that titlekeys site'.
             "<'container-fluid'tr>" +
             "<'container-fluid'i><'container-fluid'p>>",
             "ajax": {
-                "url": "https://api.titledb.ga/v0/",
+                "url": "http://api.titledb.ga:7080/v0/",
                 "dataSrc": ""
             },
             "order": [[ 1, "asc" ]],
@@ -154,7 +154,7 @@ Web UI originally based on 'that titlekeys site'.
                     "defaultContent": "",
                     render : function(data, type, row, meta) {
                         if (type === 'display') {
-                            return '<img src="//api.titledb.ga/images/'+row.titleid+'.png">';
+                            return '<img src="//api.titledb.ga:7080/images/'+row.titleid+'.png">';
                         }
                     }
                 },
@@ -199,7 +199,7 @@ Web UI originally based on 'that titlekeys site'.
             "timeOut": "5000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
-  y          "hideEasing": "linear",
+            "hideEasing": "linear",
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
@@ -209,7 +209,7 @@ Web UI originally based on 'that titlekeys site'.
 
             $("#qrcode").empty().qrcode({
                 //text: $.trim($(this).parent().text()),
-        text: 'https://api.titledb.ga/v0/proxy/' + $.trim(row.eq(4).text()),
+        text: 'http://api.titledb.ga:7080/v0/proxy/' + $.trim(row.eq(4).text()),
                 width: 500,
                 height: 500
             });
