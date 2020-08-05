@@ -23,10 +23,8 @@ from sqlalchemy.orm import (
     relationship,
     scoped_session,
     sessionmaker,
-    column_property,
-    configure_mappers
+    column_property
 )
-configure_mappers()
 
 from sqlalchemy.sql import ( select, func, cast )
 
@@ -52,19 +50,21 @@ class GenericSchema(RenderSchema):
     class Meta:
         ordered = True
         #exclude = ['created_at','updated_at']
+
 class FileBase(GenericBase, AbstractConcreteBase):
-    __abstract__ = True
-    version = Column(String(64))
-    size = Column(Integer)
-    mtime = Column(DateTime)
-    path = Column(String(512))
-    sha256 = Column(String(64))
-    @declared_attr
-    def url_id(cls):
-        return Column(Integer, ForeignKey('url.id'))
-    @declared_attr
-    def url(cls):
-        return relationship('URL')
+    #__abstract__ = True
+#    def __init__():
+        version = Column(String(64))
+        size = Column(Integer)
+        mtime = Column(DateTime)
+        path = Column(String(512))
+        sha256 = Column(String(64))
+        @declared_attr
+        def url_id(cls):
+            return Column(Integer, ForeignKey('url.id'))
+        @declared_attr
+        def url(cls):
+             return relationship('URL')
 
 class FileSchema(GenericSchema):
     version = fields.String(allow_none=True)
@@ -151,17 +151,17 @@ class EntrySchemaNested(EntrySchema):
     arm9 = fields.Nested('ARM9SchemaNested', many=True, exclude=['active','entry_id','entry'])
 
 class CIA(FileBase):
-    __tablename__ = 'cia'
-    entry_id = Column(Integer, ForeignKey('entry.id'))
-    assets_id = Column(Integer, ForeignKey('assets.id'))
-    titleid = Column(String(16))
-    name_s = Column(Unicode(64))
-    name_l = Column(Unicode(128))
-    publisher = Column(Unicode(64))
-    icon_s = Column(String(1536))
-    icon_l = Column(String(6144))
-    entry = relationship('Entry')
-    assets = relationship('Assets')
+        __tablename__ = 'cia'
+        entry_id  = Column(Integer, ForeignKey('entry.id'))
+        assets_id = Column(Integer, ForeignKey('assets.id'))
+        titleid   = Column(String(16))
+        name_s    = Column(Unicode(64))
+        name_l    = Column(Unicode(128))
+        publisher = Column(Unicode(64))
+        icon_s    = Column(String(1536))
+        icon_l    = Column(String(6144))
+        entry     = relationship('Entry')
+        assets    = relationship('Assets')
 
 class CIASchema(FileSchema):
     entry_id = fields.Integer()
@@ -181,20 +181,21 @@ class CIASchemaNested(FileSchemaNested, CIASchema):
 
 class CIA_v0(Base):
     __table__ = CIA.__table__
-    __mapper_args__ = {
-        'include_properties' :['id', 'active', 'titleid', 'name', 'description', 'author', 'size', 'mtime', 'create_time', 'update_time', 'url_id']
-    }
-    id = CIA.__table__.c.id
-    active = CIA.__table__.c.active
-    titleid = CIA.__table__.c.titleid
-    name = CIA.__table__.c.name_s
-    description = CIA.__table__.c.name_l
-    author = CIA.__table__.c.publisher
-    size = CIA.__table__.c.size
-    mtime = CIA.__table__.c.mtime
-    url = relationship('URL', primaryjoin=URL.id==__table__.c.url_id)
-    create_time = CIA.__table__.c.created_at
-    update_time = CIA.__table__.c.updated_at
+    def __init__():
+        __mapper_args__ = {
+            'include_properties' :['id', 'active', 'titleid', 'name', 'description', 'author', 'size', 'mtime', 'create_time', 'update_time', 'url_id']
+        }
+        id = CIA.__table__.c.id
+        active = CIA.__table__.c.active
+        titleid = CIA.__table__.c.titleid
+        name = CIA.__table__.c.name_s
+        description = CIA.__table__.c.name_l
+        author = CIA.__table__.c.publisher
+        size = CIA.__table__.c.size
+        mtime = CIA.__table__.c.mtime
+        url = relationship('URL', primaryjoin=URL.id==__table__.c.url_id)
+        create_time = CIA.__table__.c.created_at
+        update_time = CIA.__table__.c.updated_at
 
 class CIASchema_v0(RenderSchema):
     id = fields.Integer(dump_only=True)

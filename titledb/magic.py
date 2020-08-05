@@ -450,8 +450,8 @@ def process_cia(parent, relatives, cache_path, archive_path=None):
         except IndexError:
             return None
 
-        if cia.titleid[:8] == "00040000":
-            cia.active = True
+        #if cia.titleid[:8] == "00040000":
+        cia.active = True
 
         f.seek(-14016, 2)
         (cia.name_s, cia.name_l, cia.publisher, cia.icon_s, cia.icon_l) = decode_smdh_data(f.read(14016))
