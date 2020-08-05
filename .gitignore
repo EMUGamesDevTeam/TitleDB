@@ -27,3 +27,5 @@ development.ini
 **/.local/
 **/.sudo_as_admin_successful
 **/.gitconfig
+**/*.save
+**/*.save.1
