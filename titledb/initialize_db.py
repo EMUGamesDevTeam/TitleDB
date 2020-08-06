@@ -42,12 +42,12 @@ def main(argv=sys.argv):
     Base.metadata.create_all(engine)
 
     with transaction.manager:
-        userpass = json.load(open("private/userpass.json"))
+        userpass = json.loads(open("private/userpass.json", "r").read())
         for username in userpass:
             usermodel = User(name=userpass["username"], password=userpass["password"], email=userpass["email"], active=True)
             DBSession.add(usermodel)
 
-            user = DBSession.query(User).filter_by(name=username).one()
+            user = DBSession.query(User).filter_by(name=userpass["username"]).one()
             groupmodel = Group(id=user.id, name='super', active=True)
             DBSession.add(groupmodel)
 

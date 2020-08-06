@@ -4,8 +4,8 @@ import os
 import sys
 import re
 import transaction
-#import base64
-#import zlib
+import base64
+import zlib
 
 from sqlalchemy import engine_from_config, event
 
@@ -92,16 +92,15 @@ def main(argv=sys.argv):
 
 
 #    with transaction.manager:
-#        for cia in DBSession.query(CIA).all():
-#            cia.icon_s = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_s)))
-#            cia.icon_l = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_l)))
-#            DBSession.query(CIA).filter_by(id=cia.id).update(dict(icon_s=cia.icon_s,icon_l=cia.icon_l))
+ #       for cia in DBSession.query(CIA).all():
+  #          cia.icon_s = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_s)))
+   #         cia.icon_l = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_l)))
+    #        DBSession.query(CIA).filter_by(id=cia.id).update(dict(icon_s=cia.icon_s,icon_l=cia.icon_l))
 #
-#    with transaction.manager:
-#        for cia in DBSession.query(CIA).all():
+ #   with transaction.manager:
+  #      for cia in DBSession.query(CIA).all():
 #
-#            m = re.search('(.*)#(.*)', cia.url)
-#            if m:
-#                cia.url = m.group(1)
-#                cia.path = m.group(2)
-
+ #           m = re.search('(.*)#(.*)', cia.url)
+  #          if m:
+   #             cia.url = m.group(1)
+    #            cia.path = m.group(2)
