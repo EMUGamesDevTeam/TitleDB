@@ -52,8 +52,6 @@ class GenericSchema(RenderSchema):
         #exclude = ['created_at','updated_at']
 
 class FileBase(GenericBase, AbstractConcreteBase):
-    #__abstract__ = True
-#    def __init__():
         version = Column(String(64))
         size = Column(Integer)
         mtime = Column(DateTime)

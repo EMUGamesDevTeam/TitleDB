@@ -1,5 +1,5 @@
-#import discord
-#from discord.ext import commands
+import discord
+from discord.ext import commands
 #bot = commands.Bot(command_prefix="e!")
 
 import logging
@@ -337,13 +337,13 @@ class SubmissionView(BaseView):
     everyone_cls = SubmissionSchemaEveryone
 
 @view_defaults(renderer='json')
-class TitleDBViews:
+class TitleDBViews(commands.Bot):
     active_version = 'v1'
 
     def __init__(self, request):
+        print(request)
         self.request = request
         self.logged_in = request.authenticated_userid
-
     @view_config(route_name='home')
     def home(self):
         results = OrderedDict(api_version=self.active_version)
@@ -508,5 +508,3 @@ class TitleDBViews:
     @forbidden_view_config(renderer='json')
     def forbidden(self):
         return dict(error='Access denied.')
-
-#bot.run(token)
