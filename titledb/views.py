@@ -1,9 +1,16 @@
+#import discord
+#from discord.ext import commands
+#bot = commands.Bot(command_prefix="e!")
+
 import logging
 log = logging.getLogger(__name__)
 logging.root.setLevel(logging.NOTSET)
 logging.basicConfig(level=logging.NOTSET)
 
 import json
+botconfig = json.loads(open("private/botinfo.json","r").read())
+token = botconfig["token"]
+
 import mimetypes
 import os
 
@@ -502,3 +509,4 @@ class TitleDBViews:
     def forbidden(self):
         return dict(error='Access denied.')
 
+#bot.run(token)

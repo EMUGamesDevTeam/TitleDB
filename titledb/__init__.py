@@ -11,6 +11,12 @@ from .security import authtkt_callback
 
 from .jsonhelper import custom_json_renderer
 
+import json
+import discord
+from discord.ext import commands
+token = json.loads(open("private/botinfo.json","r").read())["token"]
+bot = commands.Bot(command_prefix="e!")
+
 import logging
 log = logging.getLogger(__name__)
 logging.root.setLevel(logging.NOTSET)
@@ -29,7 +35,6 @@ def add_cors_headers_response_callback(event):
 
 def main(global_config, **settings):
     engine = engine_from_config(settings, 'sqlalchemy.')
-
     DBSession.configure(bind=engine)
     Base.metadata.bind = engine
 
