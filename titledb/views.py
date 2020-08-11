@@ -341,7 +341,6 @@ class TitleDBViews(commands.Bot):
     active_version = 'v1'
 
     def __init__(self, request):
-        print(request)
         self.request = request
         self.logged_in = request.authenticated_userid
     @view_config(route_name='home')
