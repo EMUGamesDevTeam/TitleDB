@@ -84,7 +84,7 @@ def main(global_config, **settings):
     config.add_route('login_v1', '/v1/login')
     config.add_route('logout_v1', '/v1/logout')
     config.add_route('login_status_v1', '/v1/login_status')
-
+    
     config.add_static_view(name='static', path='titledb:static')
 
     config.scan('.views')

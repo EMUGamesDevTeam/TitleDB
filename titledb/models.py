@@ -37,32 +37,32 @@ DBSession = scoped_session(
 Base = declarative_base()
 
 class GenericBase(AbstractConcreteBase, Base):
-    id = Column(Integer, primary_key=True)
-    active = Column(Boolean)
+    id         = Column(Integer, primary_key=True)
+    active     = Column(Boolean)
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
 
 class GenericSchema(RenderSchema):
-    id = fields.Integer(dump_only=True)
-    active = fields.Bool()
-    created_at = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
-    updated_at = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
+    id          = fields.Integer(dump_only=True)
+    active      = fields.Bool()
+    created_at  = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
+    updated_at  = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
     class Meta:
         ordered = True
         exclude = ['created_at','updated_at']
 
 class FileBase(GenericBase, AbstractConcreteBase):
-        version = Column(String(64))
-        size = Column(Integer)
-        mtime = Column(DateTime)
-        path = Column(String(512))
-        sha256 = Column(String(64))
-        @declared_attr
-        def url_id(cls):
-            return Column(Integer, ForeignKey('url.id'))
-        @declared_attr
-        def url(cls):
-             return relationship('URL')
+    version = Column(String(64))
+    size    = Column(Integer)
+    mtime   = Column(DateTime)
+    path    = Column(String(512))
+    sha256  = Column(String(64))
+    @declared_attr
+    def url_id(cls):
+        return Column(Integer, ForeignKey('url.id'))
+    @declared_attr
+    def url(cls):
+        return relationship('URL')
 
 class FileSchema(GenericSchema):
     version = fields.String(allow_none=True)
@@ -149,17 +149,17 @@ class EntrySchemaNested(EntrySchema):
     arm9 = fields.Nested('ARM9SchemaNested', many=True, exclude=['active','entry_id','entry'])
 
 class CIA(FileBase):
-        __tablename__ = 'cia'
-        entry_id  = Column(Integer, ForeignKey('entry.id'))
-        assets_id = Column(Integer, ForeignKey('assets.id'))
-        titleid   = Column(String(16))
-        name_s    = Column(Unicode(64))
-        name_l    = Column(Unicode(128))
-        publisher = Column(Unicode(64))
-        icon_s    = Column(String(1536))
-        icon_l    = Column(String(6144))
-        entry     = relationship('Entry')
-        assets    = relationship('Assets')
+    __tablename__ = 'cia'
+    entry_id  = Column(Integer, ForeignKey('entry.id'))
+    assets_id = Column(Integer, ForeignKey('assets.id'))
+    titleid   = Column(String(16))
+    name_s    = Column(Unicode(64))
+    name_l    = Column(Unicode(128))
+    publisher = Column(Unicode(64))
+    icon_s    = Column(String(1536))
+    icon_l    = Column(String(6144))
+    entry     = relationship('Entry')
+    assets    = relationship('Assets')
 
 class CIASchema(FileSchema):
     entry_id = fields.Integer()

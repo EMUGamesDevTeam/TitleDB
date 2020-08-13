@@ -3,19 +3,6 @@ from marshmallow import Schema
 from pyramid.httpexceptions import HTTPInternalServerError
 from pyramid.renderers import JSON
 
-jsoncode = {
-  "id": 0,
-  "titleid": "000400000DAED300",
-  "name": "DaedalusX64",
-  "description": "DaedalusX64 port for 3DS",
-  "author": "MasterFeizz",
-  "size": 194496,
-  "mtime": 1446439144,
-  "url": "https://cdn.discordapp.com/attachments/726387225755123792/730031713790590976/DaedalusX64.cia",
-  "create_time": "2017-01-07 16:58:43",
-  "update_time": "2017-01-07 16:58:43"
- }
-
 class RenderSchema(Schema):
     """
     Schema to prevent marshmallow from using its default type mappings.
@@ -43,7 +30,6 @@ class SchemaJsonRenderer(JSON):
         original_render = super().__call__(info)
 
         def schema_render(value, system):
-#            value = []
             request = system.get('request')
             if (request is not None and isinstance(getattr(request, 'render_schema', None), Schema)):
 # This doesn't catch errors...

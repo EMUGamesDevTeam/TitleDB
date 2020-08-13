@@ -47,7 +47,7 @@ def main(argv=sys.argv):
             usermodel = User(name=userpass["username"], password=userpass["password"], email=userpass["email"], active=True)
             DBSession.add(usermodel)
 
-            user = DBSession.query(User).filter_by(name=userpass["username"]).one()
+            user = DBSession.query(User).filter_by(name=userpass["username"]).first()
             groupmodel = Group(id=user.id, name='super', active=True)
             DBSession.add(groupmodel)
 
