@@ -66,15 +66,15 @@ class FileBase(GenericBase, AbstractConcreteBase):
 
 class FileSchema(GenericSchema):
     version = fields.String(allow_none=True)
-    size = fields.Integer()
-    mtime = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ')
-    path = fields.String(allow_none=True)
-    sha256 = fields.String()
-    url_id = fields.Integer()
+    size    = fields.Integer()
+    mtime   = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ')
+    path    = fields.String(allow_none=True)
+    sha256  = fields.String()
+    url_id  = fields.Integer()
 
 class FileSchemaNested(FileSchema):
     url_id = fields.Integer(load_only=True)
-    url = fields.Nested('URLSchemaNested', many=False, only=('url',))
+    url    = fields.Nested('URLSchemaNested', many=False, only=('url',))
 
 class URL(GenericBase):
     __tablename__ = 'url'
@@ -152,12 +152,14 @@ class CIA(FileBase):
     __tablename__ = 'cia'
     entry_id  = Column(Integer, ForeignKey('entry.id'))
     assets_id = Column(Integer, ForeignKey('assets.id'))
+    url_id    = Column(Integer, ForeignKey('url.id'))
     titleid   = Column(String(16))
     name_s    = Column(Unicode(64))
     name_l    = Column(Unicode(128))
     publisher = Column(Unicode(64))
     icon_s    = Column(String(1536))
     icon_l    = Column(String(6144))
+    url       = relationship('URL')
     entry     = relationship('Entry')
     assets    = relationship('Assets')
 

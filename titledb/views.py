@@ -337,7 +337,7 @@ class SubmissionView(BaseView):
     everyone_cls = SubmissionSchemaEveryone
 
 @view_defaults(renderer='json')
-class TitleDBViews(commands.Bot):
+class TitleDBViews:
     active_version = 'v1'
 
     def __init__(self, request):
