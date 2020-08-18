@@ -14,10 +14,7 @@ File-based tables (check models.py to find them) must also contain these columns
 
 """
 
-print("Starting up...")
-from marshmallow import Schema, fields
-
-from pyramid.security import Allow, Everyone
+print("Preparing...")
 
 from sqlalchemy import (
     MetaData,
@@ -35,10 +32,6 @@ from sqlalchemy import (
 )
 meta = MetaData()
 
-from sqlalchemy.ext.declarative import ( AbstractConcreteBase, declarative_base, declared_attr )
-
-from sqlalchemy.ext.hybrid import hybrid_property
-
 from sqlalchemy.orm import (
     relationship,
     scoped_session,
@@ -47,11 +40,29 @@ from sqlalchemy.orm import (
 )
 
 from sqlalchemy.sql import ( select, func, cast )
+import time
+import sys
+from getpass import getpass
+print("Checking Python version...")
+major = sys.version_info[0]
+minor = sys.version_info[1]
+patch = sys.version_info[2]
+
+versionerr = "You must use Python 3.6 to install TitleDB in your machine! You are using Python " + str(major) + "." + str(minor) + "." + str(patch) + "!"
+time.sleep(1)
+if major < 3:
+    print(versionerr)
+    sys.exit(1)
+
+if (major == 3 and minor < 6) or (major == 3 and minor > 6):
+    print(versionerr)
+    sys.exit(1)
 
 db_user = input("Enter your MySQL user name (do NOT use root!): ")
-db_pass = input("Enter your MySQL user password: ")
+db_pass = getpass("Enter your MySQL user password (not echoed): ")
 db_name = input("Enter your MySQL database name: ")
 print("Okay, inserting data into database...")
+time.sleep(0.2)
 engine = create_engine(f"mysql://{db_user}:{db_pass}@localhost/{db_name}?charset=utf8&use_unicode=1", echo=True)
 
 url = Table("url", meta,
@@ -69,6 +80,8 @@ url = Table("url", meta,
     Column("sha256", String(64))
 )
 
+time.sleep(0.2)
+
 entry = Table("entry", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -81,6 +94,8 @@ entry = Table("entry", meta,
     Column("description", Text),
     Column("url", String(2048))
 )
+
+time.sleep(0.2)
 
 cia = Table("cia", meta,
     Column("id", Integer, primary_key=True),
@@ -103,6 +118,8 @@ cia = Table("cia", meta,
     Column("icon_l", String(6144))
 )
 
+time.sleep(0.2)
+
 tdsx = Table("tdsx", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -119,6 +136,8 @@ tdsx = Table("tdsx", meta,
     Column("assets_id", Integer, ForeignKey('assets.id')),
     Column("url_id", Integer, ForeignKey('url.id'))
 )
+
+time.sleep(0.2)
 
 smdh = Table("smdh", meta,
     Column("id", Integer, primary_key=True),
@@ -137,6 +156,8 @@ smdh = Table("smdh", meta,
     Column("icon_l",String(6144))
 )
 
+time.sleep(0.2)
+
 xml = Table("xml", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -148,6 +169,8 @@ xml = Table("xml", meta,
     Column("path", String(512)),
     Column("sha256", String(64))
 )
+
+time.sleep(0.2)
 
 arm9 = Table("arm9", meta,
     Column("id", Integer, primary_key=True),
@@ -164,6 +187,8 @@ arm9 = Table("arm9", meta,
     Column("assets_id", Integer, ForeignKey('assets.id'))
 )
 
+time.sleep(0.2)
+
 assets = Table("assets", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -174,8 +199,12 @@ assets = Table("assets", meta,
     Column("mtime", DateTime),
     Column("path", String(512)),
     Column("sha256", String(64)),
-    Column("mapping", Text)
+    Column("mapping", Text),
+    Column("url_id", Integer, ForeignKey('url.id'))
 )
+
+time.sleep(0.2)
+
 screenshot = Table("screenshot", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -189,6 +218,8 @@ screenshot = Table("screenshot", meta,
     Column("entry_id", Integer, ForeignKey('entry.id'))
 )
 
+time.sleep(0.2)
+
 category = Table("category", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -197,6 +228,8 @@ category = Table("category", meta,
     Column("name", String(128))
 )
 
+time.sleep(0.2)
+
 status = Table("status", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -204,6 +237,8 @@ status = Table("status", meta,
     Column("updated_at", DateTime, server_default=func.now(), onupdate=func.now()),
     Column("name", String(128))
 )
+
+time.sleep(0.2)
 
 submission = Table ("submission", meta,
     Column("id", Integer, primary_key=True),
@@ -215,6 +250,8 @@ submission = Table ("submission", meta,
     Column("client_addr", String(45)) # IPv4-mapped IPv6 maximum
 )
 
+time.sleep(0.2)
+
 users = Table("users", meta, 
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -225,6 +262,8 @@ users = Table("users", meta,
     Column("email", String(256))
 )
 
+time.sleep(0.2)
+
 groups = Table("groups", meta,
     Column("id", Integer, primary_key=True),
     Column("active", Boolean),
@@ -233,4 +272,8 @@ groups = Table("groups", meta,
     Column("name", String(64))
 )
 
-meta.create_all(engine)
+time.sleep(0.2)
+
+def main():
+    meta.create_all(engine)
+    print("Done!")

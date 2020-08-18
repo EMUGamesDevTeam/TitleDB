@@ -45,11 +45,11 @@ def main(argv=sys.argv):
         userpass = json.loads(open("private/userpass.json", "r").read())
         for username in userpass:
             usermodel = User(name=userpass["username"], password=userpass["password"], email=userpass["email"], active=True)
-            DBSession.add(usermodel)
+            DBSession.merge(usermodel)
 
             user = DBSession.query(User).filter_by(name=userpass["username"]).first()
             groupmodel = Group(id=user.id, name='super', active=True)
-            DBSession.add(groupmodel)
+            DBSession.merge(groupmodel)
 
     with transaction.manager:
         categories = json.load(open("categories.json"))

@@ -20,11 +20,13 @@ requires = [
 ]
 
 setup(name='titledb',
+      python_requires="==3.6.*",
       install_requires=requires,
       entry_points="""\
       [paste.app_factory]
       main = titledb:main
       [console_scripts]
+      install_titledb_db = titledb.insert_db:main
       initialize_titledb_db = titledb.initialize_db:main
       update_titledb_db = titledb.update_db:main
       titledb_cli = titledb.cli:main
