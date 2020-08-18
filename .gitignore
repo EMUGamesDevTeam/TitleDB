@@ -30,3 +30,4 @@ development.ini
 **/*.save
 **/*.save.1
 **/*.swp
+.python_history
