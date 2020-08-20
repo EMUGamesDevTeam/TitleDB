@@ -36,6 +36,7 @@ def main(argv=sys.argv):
 
     with transaction.manager:
         for cia in DBSession.query(CIA).all():
+            print(f"\n\n{cia}\n\n")
             cia.icon_s = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_s)))
             cia.icon_l = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_l)))
             DBSession.query(CIA).filter_by(id=cia.id).update(dict(icon_s=cia.icon_s,icon_l=cia.icon_l))

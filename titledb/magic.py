@@ -455,7 +455,7 @@ def process_cia(parent, relatives, cache_path, archive_path=None):
 
         f.seek(-14016, 2)
         (cia.name_s, cia.name_l, cia.publisher, cia.icon_s, cia.icon_l) = decode_smdh_data(f.read(14016))
-    return(cia)
+    return cia
 
 def process_tdsx(parent, relatives, cache_path, archive_path=None):
     (tdsx, filename) = find_or_fill_generic(TDSX, parent, relatives, cache_path, archive_path)

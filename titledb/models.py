@@ -49,7 +49,7 @@ class GenericSchema(RenderSchema):
     updated_at  = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
     class Meta:
         ordered = True
-        exclude = ['created_at','updated_at']
+        #exclude = ['created_at','updated_at']
 
 class FileBase(GenericBase, AbstractConcreteBase):
     version = Column(String(64))

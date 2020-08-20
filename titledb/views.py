@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
-#bot = commands.Bot(command_prefix="e!")
+from discord import Webhook, RequestsWebhookAdapter
+import json
+webhook = Webhook.from_url(json.loads(open("private/botinfo.json").read())["webhook_url"], adapter=RequestsWebhookAdapter())
 
 import logging
 log = logging.getLogger(__name__)
@@ -377,6 +378,9 @@ class TitleDBViews:
                 titleids.append(item.titleid)
                 unique.append(item)
         self.request.render_schema = CIASchema_v0(many=True)
+
+        embed = discord.Embed(title="Qualcuno è andato su /v0!", description="yestü", url="http://api.titledb.ga/v0", color=discord.Color.blurple())
+        webhook.send(embed=embed)
         return unique
 
     @view_config(route_name='login_v1', renderer='login.pt')
@@ -502,7 +506,7 @@ class TitleDBViews:
 
     @view_config(route_name='time_v1')
     def time(self):
-        return datetime.utcnow()
+         return datetime.utcnow()
 
     @forbidden_view_config(renderer='json')
     def forbidden(self):
