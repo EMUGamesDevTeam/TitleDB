@@ -43,10 +43,10 @@ class GenericBase(AbstractConcreteBase, Base):
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
 
 class GenericSchema(RenderSchema):
-    id          = fields.Integer(dump_only=True)
-    active      = fields.Bool()
-    created_at  = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
-    updated_at  = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
+    id         = fields.Integer(dump_only=True)
+    active     = fields.Bool()
+    created_at = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
+    updated_at = fields.DateTime(format='%Y-%m-%dT%H:%M:%SZ', dump_only=True)
     class Meta:
         ordered = True
         #exclude = ['created_at','updated_at']
@@ -86,6 +86,7 @@ class URL(GenericBase):
     content_type = Column(String(64))
     size = Column(Integer)    
     sha256 = Column(String(64)) 
+
     cia = relationship('CIA',
         primaryjoin='and_(CIA.url_id == URL.id, CIA.active == True)')
     tdsx = relationship('TDSX',
@@ -180,21 +181,21 @@ class CIASchemaNested(FileSchemaNested, CIASchema):
     assets = fields.Nested('AssetsSchemaNested', many=False, exclude=['active','cia','tdsx','arm9'])
 
 class CIA_v0(Base):
-        __table__ = CIA.__table__
-        __mapper_args__ = {
-            'include_properties' :['id', 'active', 'titleid', 'name', 'description', 'author', 'size', 'mtime', 'create_time', 'update_time', 'url_id']
-        }
-        id = CIA.__table__.c.id
-        active = CIA.__table__.c.active
-        titleid = CIA.__table__.c.titleid
-        name = CIA.__table__.c.name_s
-        description = CIA.__table__.c.name_l
-        author = CIA.__table__.c.publisher
-        size = CIA.__table__.c.size
-        mtime = CIA.__table__.c.mtime
-        url = relationship('URL', primaryjoin=URL.id==__table__.c.url_id)
-        create_time = CIA.__table__.c.created_at
-        update_time = CIA.__table__.c.updated_at
+    __table__ = CIA.__table__
+    __mapper_args__ = {
+        'include_properties' :['id', 'active', 'titleid', 'name', 'description', 'author', 'size', 'mtime', 'create_time', 'update_time', 'url_id']
+    }
+    id = CIA.__table__.c.id
+    active = CIA.__table__.c.active
+    titleid = CIA.__table__.c.titleid
+    name = CIA.__table__.c.name_s
+    description = CIA.__table__.c.name_l
+    author = CIA.__table__.c.publisher
+    size = CIA.__table__.c.size
+    mtime = CIA.__table__.c.mtime
+    url = relationship('URL', primaryjoin=URL.id==__table__.c.url_id)
+    create_time = CIA.__table__.c.created_at
+    update_time = CIA.__table__.c.updated_at
 
 class CIASchema_v0(RenderSchema):
     id = fields.Integer(dump_only=True)
@@ -365,7 +366,7 @@ class User(GenericBase):
     name = Column(String(64))
     password = Column(String(64))
     email = Column(String(256))
- 
+
 class Group(GenericBase):
     __tablename__ = 'groups'
     name = Column(String(64))

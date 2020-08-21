@@ -36,16 +36,26 @@ def main(argv=sys.argv):
 
     with transaction.manager:
         for cia in DBSession.query(CIA).all():
-            print(f"\n\n{cia}\n\n")
-            cia.icon_s = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_s)))
-            cia.icon_l = base64.b64encode(zlib.decompress(base64.b64decode(cia.icon_l)))
+            print(cia.icon_s)
+            icons1 = base64.b64decode(cia.icon_s)
+            try:
+                icons2 = zlib.decompress(icons1)
+            except zlib.error:
+                icons2 = icons1
+            iconl1 = base64.b64decode(cia.icon_l)
+            try:
+                iconl2 = zlib.decompress(iconl1)
+            except zlib.error:
+                iconl2 = iconl1
+            cia.icon_s = base64.b64encode(icons2)
+            cia.icon_l = base64.b64encode(iconl2)
             DBSession.query(CIA).filter_by(id=cia.id).update(dict(icon_s=cia.icon_s,icon_l=cia.icon_l))
 
     with transaction.manager:
-        for cia in DBSession.query(CIA).all():
 
-            m = re.search('(.*)#(.*)', cia.url)
+        for cia in DBSession.query(CIA).all():
+            m = re.search('(.*)#(.*)', cia.url.url)
             if m:
-                cia.url = m.group(1)
+                cia.url  = m.group(1)
                 cia.path = m.group(2)
 
