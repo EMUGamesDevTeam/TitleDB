@@ -21,7 +21,6 @@ logging.basicConfig(level=logging.NOTSET)
 
 from datetime import datetime
 
-from .github import ( github_parse_user_repo ) #
 from .github import github_parse_user_repo
 
 from .models import (
