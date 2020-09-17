@@ -1,0 +1,7 @@
+setup.py
+titledb.egg-info/PKG-INFO
+titledb.egg-info/SOURCES.txt
+titledb.egg-info/dependency_links.txt
+titledb.egg-info/entry_points.txt
+titledb.egg-info/requires.txt
+titledb.egg-info/top_level.txt

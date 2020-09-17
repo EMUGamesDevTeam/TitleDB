@@ -1,0 +1,8 @@
+POST https://api.titledb.ga/v0
+content-type: application/json
+
+{
+"action": {
+        "add&url": "https://cdn.discordapp.com/attachments/726387225755123792/730031713790590976/DaedalusX64.cia"
+    }
+}
