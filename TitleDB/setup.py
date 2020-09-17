@@ -16,7 +16,9 @@ requires = [
     'libarchive-c==2.7',
     'zope.sqlalchemy==1.0',
     'requests==2.18.4',
-    'mysqlclient==1.3.12'
+    'mysqlclient==1.3.12',
+    "discord",
+    "pynacl"
 ]
 
 setup(name='titledb',

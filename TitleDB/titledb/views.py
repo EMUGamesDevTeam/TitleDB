@@ -1,16 +1,15 @@
 import discord
 from discord import Webhook, RequestsWebhookAdapter
 import json
-webhook = Webhook.from_url(json.loads(open("private/botinfo.json").read())["webhook_url"], adapter=RequestsWebhookAdapter())
+#webhook = Webhook.from_url(json.loads(open("private/botinfo.json").read())["webhook_url"], adapter=RequestsWebhookAdapter())
 
 import logging
 log = logging.getLogger(__name__)
 logging.root.setLevel(logging.NOTSET)
 logging.basicConfig(level=logging.NOTSET)
 
-import json
-botconfig = json.loads(open("private/botinfo.json","r").read())
-token = botconfig["token"]
+#botconfig = json.loads(open("private/botinfo.json","r").read())
+#token = botconfig["token"]
 
 import mimetypes
 import os
@@ -237,6 +236,7 @@ class BaseView(object):
         self.request.render_schema = self.active_schema
 
         total = int(DBSession.query(self.item_cls).count())
+        print("\n\n\n" + str(data.all()) + "\n\n\n")
         self.request.response.headers['X-Total-Count'] = str(total)
         self.request.response.headers['Access-Control-Expose-Headers'] = 'X-Total-Count'
         return data.all()
@@ -364,6 +364,7 @@ class TitleDBViews:
                 if 'client_addr' in dir(submission):
                     submission.client_addr = self.request.client_addr
                 DBSession.add(submission)
+                DBSession.commit()
                 DBSession.flush()
                 self.request.render_schema = SubmissionSchema()
                 return submission
@@ -379,8 +380,8 @@ class TitleDBViews:
                 unique.append(item)
         self.request.render_schema = CIASchema_v0(many=True)
 
-        embed = discord.Embed(title="Qualcuno è andato su /v0!", description="yestü", url="http://api.titledb.ga/v0", color=discord.Color.blurple())
-        webhook.send(embed=embed)
+        #embed = discord.Embed(title="Qualcuno è andato su /v0!", description="yestü", url="http://api.titledb.ga/v0", color=discord.Color.blurple())
+        #webhook.send(embed=embed)
         return unique
 
     @view_config(route_name='login_v1', renderer='login.pt')
